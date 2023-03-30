@@ -1,7 +1,40 @@
 <script setup>
-import { Swiper, SwiperSlide, useSwiper } from "swiper/vue";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation, Scrollbar } from 'swiper'
+
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 import sprite from '../assets/img/sprite.svg';
+
+const modules = [
+  Navigation, Scrollbar
+]
+
+const breakpoints = {
+  0: {
+    slidesPerView: 1,
+    spaceBetween: 16,
+  },
+  769: {
+    slidesPerView: 2,
+    spaceBetween: 32,
+  },
+  1151: {
+    slidesPerView: 3,
+    spaceBetween: 56,
+  },
+}
+
+const navigation = {
+  nextEl: '.next',
+  prevEl: '.prev'
+}
+
+const scrollbar = {
+  hide: true
+}
+
 </script>
 
 
@@ -17,19 +50,20 @@ import sprite from '../assets/img/sprite.svg';
         <div class="slider-navigation">
           <div class="prev">
             <svg viewBox="0 0 24 24">
-              <use :xlink:href="sprite+'#arrow-left'"></use>
+              <use :xlink:href="sprite + '#arrow-left'"></use>
             </svg>
           </div>
           <div class="next">
             <svg viewBox="0 0 24 24">
-              <use :xlink:href="sprite+'#arrow-right'"></use>
+              <use :xlink:href="sprite + '#arrow-right'"></use>
             </svg>
           </div>
         </div>
       </div>
       <div class="portfolio-item-wrapper">
         <!-- swiper  -->
-        <swiper :slides-per-view="3" :space-between="10">
+        <swiper :modules="modules" :slides-per-view="3" :space-between="10" :navigation="navigation"
+          :breakpoints="breakpoints" :scrollbar="scrollbar">
           <swiper-slide>
             <article class="portfolio-item">
               <figure>
@@ -103,85 +137,6 @@ import sprite from '../assets/img/sprite.svg';
             </article>
           </swiper-slide>
         </swiper>
-
-        <!--<div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="200">
-              <article class="portfolio-item">
-                <figure>
-                  <img src="assets/img/portfolio-item-1.jpg">
-                </figure>
-                <div class="detail">
-                  <h4 class="title">Agency Website.</h4>
-                  <div class="bottom">
-                    <span class="tag">WordPress</span>
-                    <a class="link" href="#">
-                      <svg viewBox="0 0 24 24">
-                        <use xlink:href="assets/img/sprite.svg#link"></use>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="300">
-              <article class="portfolio-item">
-                <figure>
-                  <img src="assets/img/portfolio-item-2.jpg">
-                </figure>
-                <div class="detail">
-                  <h4 class="title">Dashboard Website.</h4>
-                  <div class="bottom">
-                    <span class="tag">React</span>
-                    <a class="link" href="#">
-                      <svg viewBox="0 0 24 24">
-                        <use xlink:href="assets/img/sprite.svg#link"></use>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="400">
-              <article class="portfolio-item">
-                <figure>
-                  <img src="assets/img/portfolio-item-3.jpg">
-                </figure>
-                <div class="detail">
-                  <h4 class="title">Support Center Website.</h4>
-                  <div class="bottom">
-                    <span class="tag">PHP</span>
-                    <a class="link" href="#">
-                      <svg viewBox="0 0 24 24">
-                        <use xlink:href="assets/img/sprite.svg#link"></use>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="swiper-slide" data-aos="fade-up" data-aos-delay="200">
-              <article class="portfolio-item">
-                <figure>
-                  <img src="assets/img/portfolio-item-4.jpg">
-                </figure>
-                <div class="detail">
-                  <h4 class="title">Blog Website.</h4>
-                  <div class="bottom">
-                    <span class="tag">Jekyll</span>
-                    <a class="link" href="#">
-                      <svg viewBox="0 0 24 24">
-                        <use xlink:href="assets/img/sprite.svg#link"></use>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-        -->
-        <!-- swiper  -->
       </div>
     </div>
   </section>
@@ -323,5 +278,8 @@ import sprite from '../assets/img/sprite.svg';
   width: 24px;
   height: 24px;
   fill: var(--cinder-light);
+}
+.portfolio-section .swiper-wrapper {
+  margin-bottom: 20px;
 }
 </style>

@@ -1,6 +1,4 @@
 <script setup>
-import { onMounted, onBeforeMount } from 'vue';
-
 import HeaderComponent from './components/Header.vue';
 import Cursor from './components/Cursor.vue';
 import Hero from './components/Hero.vue';
@@ -10,7 +8,7 @@ import Experience from './components/Experience.vue';
 import Testimonials from './components/Testimonials.vue'
 import EducationSkill from './components/EducationSkill.vue';
 import Contact from './components/Contact.vue';
-import Footer from './components/Footer.vue';
+import FooterComponent from './components/Footer.vue';
 import AOS from 'aos';
 
 // AOS config
@@ -35,5 +33,5 @@ AOS.init({
     <EducationSkill />
     <Contact />
   </main>
-  <Footer />
+  <FooterComponent />
 </template>

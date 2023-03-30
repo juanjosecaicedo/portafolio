@@ -1,49 +1,31 @@
+<script setup>
+import { educationAndSkills } from '../constants';
+</script>
 <template>
   <section class="education-skill-section" id="education-skill">
     <div class="container">
       <div class="section-name" data-aos="fade-up">
-        <p class="above-title">Learning Path</p>
-        <h4 class="title">Education & Skills</h4>
+        <p class="above-title">Ruta de aprendizaje</p>
+        <h4 class="title">Educación & Skills</h4>
       </div>
       <div class="education-skill-wrapper">
         <div class="education">
-          <div class="education-item" data-aos="fade-up" data-aos-delay="100">
-            <h4 class="school">Kingston University</h4>
-            <p class="degree-field">Master's degree - Software Engineering</p>
-            <p class="date">2019 - 2021</p>
-          </div>
-          <div class="education-item" data-aos="fade-up" data-aos-delay="150">
-            <h4 class="school">Kingston University</h4>
-            <p class="degree-field">Bachelor's degree - Computer Engineering</p>
-            <p class="date">2015 - 2019</p>
-          </div>
-          <div class="education-item" data-aos="fade-up" data-aos-delay="200">
-            <h4 class="school">Westminster School</h4>
-            <p class="degree-field">Diploma's degree - Mathematics</p>
-            <p class="date">2013 - 2015</p>
+          <div v-for="(item, index) in educationAndSkills.education" :key="index" class="education-item"
+            data-aos="fade-up" data-aos-delay="100">
+            <h4 class="school">{{ item.text }}</h4>
+            <p class="degree-field">{{ item.degreeField }}</p>
+            <p class="date">{{ item.date }}</p>
           </div>
         </div>
         <div class="skill">
-          <p class="description" data-aos="fade-up" data-aos-delay="50">For 5+ years, I have been continuously learning in
-            the field of front-end and experimenting with new technologies and frameworks, and here you can see a summary
-            of my skills.</p>
+          <p class="description" data-aos="fade-up" data-aos-delay="50">Durante más de 6 años, he estado aprendiendo
+            continuamente en el campo del <span class="hid">desarrollo web (full-stack)</span> y experimentando con nuevas tecnologías. Aquí puedes ver un
+            resumen de mis habilidades.</p>
           <div class="progress-bar-wrapper" data-aos="fade-up" data-aos-delay="50">
-            <div class="progress-bar">
-              <p class="label">React</p>
+            <div v-for="(item, index) in educationAndSkills.skills" :key="index" class="progress-bar">
+              <p class="label">{{ item.label }}</p>
               <div class="main-bar">
-                <div class="fill" data-width="70"></div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <p class="label">Angular</p>
-              <div class="main-bar">
-                <div class="fill" data-width="60"></div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <p class="label">JavaScript</p>
-              <div class="main-bar">
-                <div class="fill" data-width="55"></div>
+                <div class="fill" :data-width="item.dataWidth"></div>
               </div>
             </div>
           </div>
@@ -160,4 +142,9 @@
   border-bottom-left-radius: 2px;
   transition: width .500s ease-in-out;
   width: 0;
-}</style>
+}
+
+.education-skill-section .hid {
+  color: var(--purple);
+}
+</style>

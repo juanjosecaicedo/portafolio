@@ -1,19 +1,18 @@
 
 <script setup>
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 
 import resume from "../assets/resume.pdf";
 import sprite from "../assets/img/sprite.svg";
+import { headerLink } from "../constants"
 
-const state = reactive({
-  theme: ''
-})
+const active = ref('#services');
 
 // Dark theme
 onMounted(() => {
   let prevActiveTheme = localStorage.getItem('theme-color');
   document.documentElement.setAttribute("data-theme", prevActiveTheme ? prevActiveTheme : "light");
-  
+
 });
 
 function themeToggle() {
@@ -22,7 +21,6 @@ function themeToggle() {
   localStorage.setItem("theme-color", switchToTheme)
   document.documentElement.setAttribute("data-theme", switchToTheme);
 }
-
 </script>
 
 <template>
@@ -35,24 +33,20 @@ function themeToggle() {
       </div>
       <nav class="nav">
         <ul class="nav-links">
-          <li class="services active" data-aos-delay="200" data-aos="fade-down"><a href="#services">Servicios</a></li>
-          <li class="portfolios" data-aos-delay="250" data-aos="fade-down"><a href="#portfolios">Portfolios</a></li>
-          <li class="experience" data-aos-delay="300" data-aos="fade-down"><a href="#experience">Experiencia</a></li>
-          <li class="blog" data-aos-delay="350" data-aos="fade-down"><a href="#blog">Blog</a></li>
-          <li class="testimonials mobile-link" data-aos-delay="350" data-aos="fade-down"><a
-              href="#testimonials">Testimonials</a></li>
-          <li class="education-skill mobile-link" data-aos-delay="350" data-aos="fade-down"><a
-              href="#education-skill">Education</a></li>
-          <li class="contact mobile-link" data-aos-delay="350" data-aos="fade-down"><a href="#contact">Contacto</a></li>
-          <li class="mobile-link" data-aos-delay="350" data-aos="fade-down"><a :href=resume>Resumen</a></li>
+
+          <li v-for="(item, index) in headerLink.link" :key="index"
+            :class="[active === item.link ? 'active' : '', item.class]" :data-aos-delay="item.aosDelay"
+            data-aos="fade-down" @click="active = item.link">
+            <a :href=item.link>{{ item.text }}</a>
+          </li>
           <li data-aos-delay="400" data-aos="fade-down" class="more-links">
             <svg viewBox="0 0 12 3">
               <use :xlink:href="sprite + '#more-links'"></use>
             </svg>
             <ul class="menu-list">
-              <li class="testimonials"><a href="#testimonials">Testimonials</a></li>
-              <li class="education-skill"><a href="#education-skill">Education</a></li>
-              <li class="contact"><a href="#contact">Contacto</a></li>
+              <li v-for="(item, index) in headerLink.moreLink" :key="index" :class="item.class">
+                <a :href="item.href">{{ item.text }}</a>
+              </li>
             </ul>
           </li>
         </ul>

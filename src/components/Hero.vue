@@ -1,6 +1,8 @@
 
 <script setup>
   import sprite from '../assets/img/sprite.svg'
+  import { socials } from '../constants';
+  import Service from './Service.vue';
 </script>
 
 
@@ -15,34 +17,13 @@
         <a href="assets/resume.pdf" target="_blank" class="btn btn-outline-light download-resume-mobile">Download
           Resume</a>
         <ul class="social-icons">
-          <li>
-            <a href="#">
+          <li v-for="(item, index) in socials" :key="index">
+            <a :href="item.href" target="_blank">
               <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#instagram-icon'"></use>
+                <use :xlink:href="sprite+item.icon"></use>
               </svg>
             </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#github-icon'"></use>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#twitter-icon'"></use>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#linkedin-icon'"></use>
-              </svg>
-            </a>
-          </li>
+          </li>      
         </ul>
       </div>
       <div class="image" data-aos="fade-up">

@@ -47,11 +47,6 @@ onMounted(() => {
 </template>
 
 <style>
-body,
-html {
-  cursor: none;
-}
-
 .g-cursor_hide {
   position: fixed;
   opacity: 0;

@@ -1,3 +1,11 @@
+<script setup>
+import { experience } from '../constants';
+import { ref } from 'vue';
+
+
+const active = ref('apple');
+
+</script>
 <template>
   <section class="experience-section" id="experience">
     <div class="container">
@@ -12,15 +20,14 @@
               <use xlink:href="assets/img/sprite.svg#arrow-right"></use>
             </svg>
           </div>
-          <ul>
-            <li data-tab="apple" class="active" data-aos="fade-up">Apple</li>
-            <li data-tab="microsoft" data-aos-delay="50" data-aos="fade-up">Microsoft</li>
-            <li data-tab="facebook" data-aos-delay="100" data-aos="fade-up">Facebook</li>
-            <li data-tab="slack" data-aos-delay="150" data-aos="fade-up">Slack</li>
+          <ul data-aos="fade-up" data-aos-delay="50">
+            <li v-for="(item, index) in experience" :key="index" :data-tab="item.tab"
+              :class="[active === item.tab ? 'active' : '']" @click="active = item.tab">{{ item.title }}</li>
           </ul>
         </div>
       </div>
-      <div class="content active" id="apple">
+      <div v-for="(item, index) in experience" :key="index" :class="[active === item.tab ? 'active' : '', 'content']"
+        id="apple">
         <div class="headline" data-aos-delay="50" data-aos="fade-up">
           <h4 class="job-title">Front-end developer <span class="company-name">Apple .Inc</span></h4>
           <p class="location">California, United States</p>
