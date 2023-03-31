@@ -144,7 +144,7 @@ const educationAndSkills = {
       dataWidth: 75
     },
     {
-      label: 'Magento 2',
+      label: 'magento 2',
       dataWidth: 70
     },
     {
@@ -170,22 +170,122 @@ const educationAndSkills = {
     {
       label: 'Bootstrap',
       dataWidth: 90
-    },    
+    },
   ]
 }
 const experience = [
   {
-    tab: 'apple',
-    title: 'Apple',
+    tab: 'adwise',
+    title: 'Adwise',
+    jobTitle: 'Desarrollador Magento 2',
+    link: 'https://www.adwise.cl/',
+    date: 'Ago 2021 - Actual, Remoto · Full-time',
+    location: 'Santiago de Chile',
+    stackList: [
+      'Magento 2',
+      'php',
+      "mysql",
+      'javaScript',
+      'Html',
+      'Less',
+      'Knokout'
+    ],
+    responsibilities: [
+      "Desarrollo de E-commerce en magento 2 (cloud, community)",
+      "Construir tiendas desde cero hasta su salida a producción",
+      "brindar soporte a sitio en producción",
+      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Desarrollar en módulos para extender las funcionalidades nativas de Magento",
+    ]
   },
   {
-    tab: 'microsoft',
-    title: 'Microsoft',
-
+    tab: 'agsoftware',
+    title: 'Ag Software',
+    jobTitle: 'Desarrollador Magento 2',
+    link: '#',
+    date: 'Remoto · Full-time',
+    location: 'Guachené - Colombia',
+    stackList: [
+      'Magento 2',
+      'php',
+      "mysql",
+      'javaScript',
+      'Html',
+      'Less',
+      'Knokout'
+    ],
+    responsibilities: [
+      "Desarrollar E-commerce en magento 2 (community).",
+      "implementar temas desde cero que cumplieran con el diseño dado por clientes.",
+      "Desarrollar en módulos para extender las funcionalidades de distintos sitios.",
+      "velar por el continuo funcionamiento de los sitio en producción.",
+    ]
   },
   {
-    tab: 'facebook',
-    title: 'Facebook',
+    tab: 'enjambre',
+    title: 'Enjambre Group SAS.',
+    jobTitle: 'Desarrollador full-stack',
+    link: 'https://enjambregroup.com/',
+    date: 'Presencial · Full-time',
+    location: 'Cali - Colombia',
+    stackList: [
+      "php",
+      "JavaScript",
+      "mysql",
+      "html",
+      "scss",
+      "wordpress",
+      "node.js",
+      "express.js",
+      "sockect.io",
+      "angular",
+    ],
+    responsibilities: [
+      "Desarrollar y desplegar sistemas web usando tecnologías más usadas y robustas  las cuales pudieran suplir las necesidades de los clientes.",
+      "Levantar requerimientos basados en las necesidades del cliente",
+      "Diseñar plan de trabajo.",
+      "Desarrollo de interfaces de usuarios administrativos.",
+      "Desarrollo de chatbots en nodejs.",
+      "Administración de vps.",
+      "Despliegue de aplicaciones web.",
+      "Direccionamiento de dominios (registros ti AAAA).",
+      "Implementar páginas en wordpress.",
+      "Construcción de Marketplace en wordpress.",
+      "Crear plugin para wordpress los cuales permitieran extender funcionalidades.",
+      "Migración de páginas hechas en wordpress.",
+      "Realizar comunicación entre distintas aplicaciones mediante servicios REST y SOAP."
+    ]
+  },
+  {
+    tab: 'eysi',
+    title: 'Embalaje y Servicios Industriales S.A.S',
+    jobTitle: 'Ananalista en Sistemas',
+    link: 'https://eysi.co/',
+    date: 'Presencial · Full-time',
+    location: 'Cali - Colombia',
+    stackList: [
+      "php",
+      "JavaScript",
+      "mysql",
+      "html",
+      "css 3",
+      "Bootstrap 4"
+    ],
+    responsibilities: [
+      "Desarrollar sistema de contabilidad y procesos internos administrativos a nivel departamental aplicando estándares de calidad definidos en normativa para desarrollo de software.",
+      "Levantar requerimientos basados en las necesidades de la empresa.",
+      "Realizar planeación de proyecto de digitalización de procesos internos. ",
+      "Diseñar plan de trabajo.",
+      "Diseñar interfaces de usuario.",
+      "Diseño de la base de datos.",
+      "Desarrollo de las interfaces de usuario.",
+      "Integración de módulos programados.",
+      "Realizar pruebas de caja negra, caja blanca y de integración.",
+      "Documentación de resultados de pruebas.",
+      "Análisis de pruebas y propuestas de optimización.",
+      "Mantenimiento general de software.",
+      "Desrrollo de APIs"
+    ]
   }
 ]
 

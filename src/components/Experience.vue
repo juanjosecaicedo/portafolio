@@ -1,9 +1,17 @@
 <script setup>
 import { experience } from '../constants';
 import { ref } from 'vue';
-
+import sprite from '../assets/img/sprite.svg';
 
 const active = ref('apple');
+const topSelector = ref(0)
+
+function setActive($event, tab) {
+  $event.preventDefault();
+  window.innerWidth > 999 ? topSelector.value = $event.target.offsetTop + 'px' : topSelector.value = null;
+  topSelector.value = $event.target.offsetTop + 'px';
+  active.value = tab;
+}
 
 </script>
 <template>
@@ -11,40 +19,34 @@ const active = ref('apple');
     <div class="container">
       <div class="side">
         <div class="section-name" data-aos="fade-up">
-          <p class="above-title">Career path</p>
-          <h4 class="title">Work Experience</h4>
+          <p class="above-title">Trayectoria</p>
+          <h4 class="title">Experiencia laboral</h4>
         </div>
         <div class="companies-list">
-          <div class="selector">
+          <div class="selector" :style="{top: topSelector}">
             <svg viewBox="0 0 24 24">
-              <use xlink:href="assets/img/sprite.svg#arrow-right"></use>
+              <use :xlink:href="sprite + '#arrow-right'"></use>
             </svg>
           </div>
           <ul data-aos="fade-up" data-aos-delay="50">
             <li v-for="(item, index) in experience" :key="index" :data-tab="item.tab"
-              :class="[active === item.tab ? 'active' : '']" @click="active = item.tab">{{ item.title }}</li>
+              :class="[active === item.tab ? 'active' : '']" @click="setActive($event, item.tab)">{{ item.title }}</li>
           </ul>
         </div>
       </div>
       <div v-for="(item, index) in experience" :key="index" :class="[active === item.tab ? 'active' : '', 'content']"
         id="apple">
         <div class="headline" data-aos-delay="50" data-aos="fade-up">
-          <h4 class="job-title">Front-end developer <span class="company-name">Apple .Inc</span></h4>
-          <p class="location">California, United States</p>
-          <p class="period">Nov 2020 - Present · Full-time</p>
+          <h4 class="job-title">{{ item.jobTitle }} <a :href="item.link" target="_blank"><span class="company-name">{{ item.title }}</span></a></h4>
+          <p class="location">{{ item.location }}</p>
+          <p class="period">{{ item.date }}</p>
           <ul class="stack-list">
-            <li class="tag">Swift</li>
-            <li class="tag">Go</li>
+            <li v-for="(tag, indexTag) in item.stackList" :key="indexTag" class="tag">{{ tag }}</li>        
           </ul>
         </div>
         <div class="line"></div>
-        <ul class="responsibilities">
-          <li data-aos-delay="50" data-aos="fade-up">Improving overall website performance for mobile users.</li>
-          <li data-aos-delay="100" data-aos="fade-up">Collaborate with back-end developers and web designers to improve
-            usability</li>
-          <li data-aos-delay="150" data-aos="fade-up">Add voice search feature for mobile app.</li>
-          <li data-aos-delay="200" data-aos="fade-up">Developing an admin panel to manage contents, users, products and
-            ...</li>
+        <ul class="responsibilities" data-aos-delay="50" data-aos="fade-up">
+          <li v-for="(responsibilite, indexRes) in item.responsibilities" :key="indexRes" >{{ responsibilite }}</li>         
         </ul>
       </div>
       <div class="content" id="microsoft">

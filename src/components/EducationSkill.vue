@@ -1,5 +1,37 @@
 <script setup>
 import { educationAndSkills } from '../constants';
+import { ref, onMounted } from 'vue';
+
+
+function isInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+const progressBar = ref(null);
+/*
+onMounted(() => {
+  const bars = progressBar.value.querySelectorAll('.main-bar .fill')
+  window.addEventListener('scroll', () => {
+    console.log(progressBar.value);
+    if (isInViewport(progressBar.value)) {
+      console.log(bars);
+      bars.forEach(item => {
+        if (isInViewport(item)) {
+          item.style.width = item.getAttribute('data-width') + '%';
+          console.log(item.style.width);
+        }
+      });
+    }
+  })
+})*/
+
+
 </script>
 <template>
   <section class="education-skill-section" id="education-skill">
@@ -19,13 +51,14 @@ import { educationAndSkills } from '../constants';
         </div>
         <div class="skill">
           <p class="description" data-aos="fade-up" data-aos-delay="50">Durante más de 6 años, he estado aprendiendo
-            continuamente en el campo del <span class="hid">desarrollo web (full-stack)</span> y experimentando con nuevas tecnologías. Aquí puedes ver un
+            continuamente en el campo del <span class="hid">desarrollo web (full-stack)</span> y experimentando con nuevas
+            tecnologías. Aquí puedes ver un
             resumen de mis habilidades.</p>
-          <div class="progress-bar-wrapper" data-aos="fade-up" data-aos-delay="50">
+          <div class="progress-bar-wrapper" ref="progressBar" data-aos="fade-up" data-aos-delay="50">
             <div v-for="(item, index) in educationAndSkills.skills" :key="index" class="progress-bar">
               <p class="label">{{ item.label }}</p>
               <div class="main-bar">
-                <div class="fill" :data-width="item.dataWidth"></div>
+                <div class="fill" :data-width="item.dataWidth" :style="{width: item.dataWidth+'%'}"></div>
               </div>
             </div>
           </div>
