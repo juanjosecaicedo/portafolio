@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import sprite from '../assets/img/sprite.svg';
+import tiendaflores from "../assets/img/tiendaflores.png"
 
 const modules = [
   Navigation, Scrollbar
@@ -67,12 +68,12 @@ const scrollbar = {
           <swiper-slide>
             <article class="portfolio-item">
               <figure>
-                <img src="assets/img/portfolio-item-1.jpg">
+                <img :src="tiendaflores">
               </figure>
               <div class="detail">
-                <h4 class="title">Agency Website.</h4>
+                <h4 class="title">tiendaflores</h4>
                 <div class="bottom">
-                  <span class="tag">WordPress</span>
+                  <span class="tag">Magento 2</span>
                   <a class="link" href="#">
                     <svg viewBox="0 0 24 24">
                       <use xlink:href="assets/img/sprite.svg#link"></use>
@@ -279,7 +280,38 @@ const scrollbar = {
   height: 24px;
   fill: var(--cinder-light);
 }
+
 .portfolio-section .swiper-wrapper {
   margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+  .portfolio-section {
+    padding: 80px 0 104px;
+  }
+
+  .portfolio-section .portfolio-item-wrapper {
+    margin-top: 96px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .portfolio-section .section-name {
+    flex-wrap: wrap;
+  }
+
+  .portfolio-section .section-name .content {
+    margin: 0 24px 24px 0;
+  }
+
+  .portfolio-section .slider-navigation .prev {
+    margin-right: 8px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .portfolio-section .portfolio-item-wrapper {
+    margin-top: 80px;
+  }
 }
 </style>

@@ -12,10 +12,11 @@ import { socials } from '../constants';
             <use :xlink:href="sprite + item.icon"></use>
           </svg>
         </a>
-      </li>      
+      </li>
     </ul>
-    <p class="copyright" data-aos="fade-up" data-aos-delay="100">© <span class="year">{{ new Date().getFullYear() }}</span> - Dev<span class="bold">
-        Chapter</span></p>
+    <p class="copyright" data-aos="fade-up" data-aos-delay="100">© <span class="year">{{ new Date().getFullYear()
+    }}</span> - Juan Jose<span class="bold">
+        Caicedo</span></p>
   </footer>
 </template>
 
@@ -43,4 +44,11 @@ import { socials } from '../constants';
 
 .footer .copyright .bold {
   font-weight: 500;
-}</style>
+}
+
+@media only screen and (max-width: 992px) {
+  .footer {
+    padding: 72px 0;
+  }
+}
+</style>

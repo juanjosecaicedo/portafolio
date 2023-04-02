@@ -3,7 +3,7 @@ import { experience } from '../constants';
 import { ref } from 'vue';
 import sprite from '../assets/img/sprite.svg';
 
-const active = ref('apple');
+const active = ref('adwise');
 const topSelector = ref(0)
 
 function setActive($event, tab) {
@@ -23,7 +23,7 @@ function setActive($event, tab) {
           <h4 class="title">Experiencia laboral</h4>
         </div>
         <div class="companies-list">
-          <div class="selector" :style="{top: topSelector}">
+          <div class="selector" :style="{ top: topSelector }">
             <svg viewBox="0 0 24 24">
               <use :xlink:href="sprite + '#arrow-right'"></use>
             </svg>
@@ -35,72 +35,19 @@ function setActive($event, tab) {
         </div>
       </div>
       <div v-for="(item, index) in experience" :key="index" :class="[active === item.tab ? 'active' : '', 'content']"
-        id="apple">
+        :id="item.tab">
         <div class="headline" data-aos-delay="50" data-aos="fade-up">
-          <h4 class="job-title">{{ item.jobTitle }} <a :href="item.link" target="_blank"><span class="company-name">{{ item.title }}</span></a></h4>
+          <h4 class="job-title">{{ item.jobTitle }} <a :href="item.link" target="_blank"><span class="company-name">{{
+            item.title }}</span></a></h4>
           <p class="location">{{ item.location }}</p>
           <p class="period">{{ item.date }}</p>
           <ul class="stack-list">
-            <li v-for="(tag, indexTag) in item.stackList" :key="indexTag" class="tag">{{ tag }}</li>        
+            <li v-for="(tag, indexTag) in item.stackList" :key="indexTag" class="tag">{{ tag }}</li>
           </ul>
         </div>
         <div class="line"></div>
         <ul class="responsibilities" data-aos-delay="50" data-aos="fade-up">
-          <li v-for="(responsibilite, indexRes) in item.responsibilities" :key="indexRes" >{{ responsibilite }}</li>         
-        </ul>
-      </div>
-      <div class="content" id="microsoft">
-        <div class="headline" data-aos-delay="50" data-aos="fade-up">
-          <h4 class="job-title">Front-end developer <span class="company-name"> Microsoft</span></h4>
-          <p class="location">Washington, United States</p>
-          <p class="period">Nov 2018 - Feb 2020 · Full-time</p>
-          <ul class="stack-list">
-            <li class="tag">ASP.NET</li>
-            <li class="tag">Python</li>
-          </ul>
-        </div>
-        <div class="line"></div>
-        <ul class="responsibilities">
-          <li>Vivamus quis dolor rutrum, mattis elit eu, cursus erat. Nunc vulputate ex </li>
-          <li>Praesent venenatis a quam at mollis. Aliquam erat volutpat.</li>
-          <li>Maecenas egestas elit eget enim mattis aliquet eget vitae felis..</li>
-          <li>Nam sodales ultrices nisl sed dictum. Vestibulum ante ipsum primis in faucibus ...</li>
-        </ul>
-      </div>
-      <div class="content" id="facebook">
-        <div class="headline" data-aos-delay="50" data-aos="fade-up">
-          <h4 class="job-title">Front-end developer <span class="company-name"> Facebook</span></h4>
-          <p class="location">California, United States</p>
-          <p class="period">Feb 2018 - Feb 2020 · Full-time</p>
-          <ul class="stack-list">
-            <li class="tag">PHP</li>
-            <li class="tag">React</li>
-          </ul>
-        </div>
-        <div class="line"></div>
-        <ul class="responsibilities">
-          <li>Vivamus quis dolor rutrum, mattis elit eu, cursus erat. Nunc vulputate ex </li>
-          <li>Praesent venenatis a quam at mollis. Aliquam erat volutpat.</li>
-          <li>Maecenas egestas elit eget enim mattis aliquet eget vitae felis..</li>
-          <li>Nam sodales ultrices nisl sed dictum. Vestibulum ante ipsum primis in faucibus ...</li>
-        </ul>
-      </div>
-      <div class="content" id="slack">
-        <div class="headline" data-aos-delay="50" data-aos="fade-up">
-          <h4 class="job-title">Front-end developer <span class="company-name">Slack</span></h4>
-          <p class="location">Irvine, United States</p>
-          <p class="period">Nov 2014 - Nov 2017 · Full-time</p>
-          <ul class="stack-list">
-            <li class="tag">Angular</li>
-            <li class="tag">Node.js</li>
-          </ul>
-        </div>
-        <div class="line"></div>
-        <ul class="responsibilities">
-          <li>Vivamus quis dolor rutrum, mattis elit eu, cursus erat. Nunc vulputate ex </li>
-          <li>Praesent venenatis a quam at mollis. Aliquam erat volutpat.</li>
-          <li>Maecenas egestas elit eget enim mattis aliquet eget vitae felis..</li>
-          <li>Nam sodales ultrices nisl sed dictum. Vestibulum ante ipsum primis in faucibus ...</li>
+          <li v-for="(responsibilite, indexRes) in item.responsibilities" :key="indexRes">{{ responsibilite }}</li>
         </ul>
       </div>
     </div>
@@ -252,5 +199,75 @@ function setActive($event, tab) {
   width: 10px;
   height: 2px;
   background: var(--light-4);
+}
+
+@media only screen and (max-width: 1050px) {
+  .experience-section .side {
+    margin-right: 104px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .experience-section {
+    padding: 80px 0 96px;
+  }
+
+  .experience-section .container {
+    flex-wrap: wrap;
+  }
+
+  .experience-section .side {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .experience-section .side .companies-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 56px;
+  }
+
+  .experience-section .side .companies-list ul li {
+    margin-bottom: 0;
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .experience-section .side .companies-list ul li.active {
+    background: var(--white);
+    border-radius: 2px;
+  }
+
+  [data-theme="dark"] .experience-section .side .companies-list ul li.active {
+    background: var(--purple-light-2);
+  }
+
+  .experience-section .side .companies-list .selector {
+    display: none;
+  }
+
+  .experience-section .content {
+    padding-top: 40px;
+  }
+
+  .experience-section .content .headline .job-title {
+    padding-bottom: 16px;
+  }
+
+  .experience-section .content .headline .company-name {
+    border-bottom: none;
+  }
+
+  .experience-section .content .responsibilities {
+    padding-left: 20px;
+  }
+
+  .experience-section .content .responsibilities li:after {
+    left: -16px;
+    width: 4px;
+    height: 4px;
+    border-radius: 10px;
+  }
 }
 </style>

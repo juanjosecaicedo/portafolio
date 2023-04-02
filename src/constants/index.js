@@ -4,18 +4,18 @@ const services = [
   {
     icon: '#ux-service',
     title: 'Creatividad en proyectos',
-    text: 'Turn what you have in mind of a digital product into reality. For any platform you consider.'
+    text: 'Convierte lo que tienes en mente de un producto digital en realidad. Para cualquier plataforma que consideres.'
   },
 
   {
     icon: '#app-development',
     title: 'Desarrollo de aplicaciones',
-    text: 'Standard designing, building, and implementing your applications with documentation.'
+    text: 'Diseño, construcción e implementación estándar de sus aplicaciones con documentación.'
   },
   {
     icon: '#web-development',
     title: 'Desarrollo web',
-    text: 'Create and maintain your websites and also take care of its performance and traffic capacity'
+    text: 'Crea y mantén tus sitios web y también cuida su rendimiento y capacidad de tráfico.'
   }
 ];
 
@@ -258,7 +258,7 @@ const experience = [
   },
   {
     tab: 'eysi',
-    title: 'Embalaje y Servicios Industriales S.A.S',
+    title: 'Embalaje y Servicios S.A.S',
     jobTitle: 'Ananalista en Sistemas',
     link: 'https://eysi.co/',
     date: 'Presencial · Full-time',

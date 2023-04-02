@@ -1,5 +1,51 @@
 <script setup>
-  import sprite from '../assets/img/sprite.svg';
+import { ref } from 'vue';
+import sprite from '../assets/img/sprite.svg';
+import { Field, Form, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
+import emailjs from "@emailjs/browser";
+
+const showSuccessMessage = ref(false);
+const failSubmitMessage = ref(false);
+
+function onSubmit(values, { resetForm }) {
+  console.log(values);
+
+  //console.log(JSON.stringify(values, null, 2));
+  emailjs
+    .send(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: values.name,
+        from_email: values.email,
+        message: values.message,
+        to_name: "Juan Jose",
+        to_email: "juanjosecaicedo6@gmail.com",
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    )
+    .then(
+      () => {
+        showSuccessMessage.value = true;
+        resetForm()
+        setTimeout(() => showSuccessMessage.value = false, 5000);
+      },
+      (error) => {
+        console.error(error);
+        failSubmitMessage.value = true;
+        setTimeout(() => failSubmitMessage.value = false, 5000);
+        resetForm()
+      }
+    );
+}
+
+const schema = yup.object({
+  name: yup.string().required().label('El nombre es un campo requerido'),
+  email: yup.string().required().email().label('El correo es un campo requerido'),
+  message: yup.string().required().min(8).label('El mensaje es un campo requerido')
+})
+
 </script>
 
 <template>
@@ -7,43 +53,46 @@
     <div class="container">
       <div class="contact-wrapper">
         <div class="contact-form">
-          <form name="contactForm">
-            <p class="success-submit-message">Your message has been successfully sent.</p>
-            <p class="fail-submit-message">An error occurred while sending the message.</p>
+          <Form @submit="onSubmit" :validation-schema="schema" name="contactForm">
+            <p class="success-submit-message" v-if="showSuccessMessage">Su mensaje ha sido enviado con éxito.</p>
+            <p class="fail-submit-message" v-if="failSubmitMessage">Se produjo un error al enviar el mensaje.</p>
             <div class="form-control">
-              <input name="name" class="mb-16" type="text" placeholder="Name" data-aos="fade-up" data-aos-delay="50">
-              <p class="validation-error name">Please enter your name.</p>
+              <Field name="name" class="mb-16" type="text" placeholder="Nombre" data-aos="fade-up" data-aos-delay="50" />
+              <ErrorMessage name="name" as="p" />
             </div>
             <div class="form-control">
-              <input name="email" class="mb-24" type="text" placeholder="Email" data-aos="fade-up" data-aos-delay="100">
+              <Field name="email" class="mb-24" type="text" placeholder="Correo" data-aos="fade-up"
+                data-aos-delay="100" />
               <p class="validation-error email">Please enter a valid email address.</p>
+              <ErrorMessage name="email" as="p" />
             </div>
             <div class="form-control">
-              <textarea name="message" rows="8" placeholder="Message" data-aos="fade-up" data-aos-delay="150"></textarea>
-              <p class="validation-error message">Please enter your message.</p>
+              <Field name="message" rows="8" as="textarea" placeholder="Mensaje" data-aos="fade-up"
+                data-aos-delay="150" />
+              <ErrorMessage name="message" as="p" />
             </div>
             <button class="btn btn-primary submit-btn" data-aos="fade-up" data-aos-delay="200">
-              Submit
+              Enviar
               <span class="loading"></span>
             </button>
-          </form>
+          </Form>
         </div>
         <div class="contact-info">
-          <div class="contact-info-item" data-aos="fade-up" data-aos-delay="50">
+          <div class="contact-info-item" data-aos="fade-up" data-aos-delay="200">
             <div class="icon">
               <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#address-icon'"></use>
+                <use :xlink:href="sprite + '#email-icon'"></use>
               </svg>
             </div>
             <div class="content">
-              <h4 class="title">Dirección</h4>
-              <p class="body">Cl 9a #3-22, Jamundi, Colombia</p>
+              <h4 class="title">Correo</h4>
+              <p class="body">juanjosecaicedo6@gmail.com</p>
             </div>
           </div>
           <div class="contact-info-item" data-aos="fade-up" data-aos-delay="150">
             <div class="icon">
               <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#phone-icon'"></use>
+                <use :xlink:href="sprite + '#phone-icon'"></use>
               </svg>
             </div>
             <div class="content">
@@ -51,15 +100,15 @@
               <p class="body">(+57) 3235121557</p>
             </div>
           </div>
-          <div class="contact-info-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="contact-info-item" data-aos="fade-up" data-aos-delay="50">
             <div class="icon">
               <svg viewBox="0 0 24 24">
-                <use :xlink:href="sprite+'#email-icon'"></use>
+                <use :xlink:href="sprite + '#address-icon'"></use>
               </svg>
             </div>
             <div class="content">
-              <h4 class="title">Correo</h4>
-              <p class="body">juanjosecaicedo6@gmail.com</p>
+              <h4 class="title">Dirección</h4>
+              <p class="body">Cl 9a #3-22, Jamundi, Colombia</p>
             </div>
           </div>
         </div>
@@ -97,7 +146,6 @@
   border-radius: 4px;
   padding: 6px 20px;
   margin-bottom: 16px;
-  display: none;
 }
 
 [data-theme="dark"] .success-submit-message {
@@ -148,5 +196,43 @@
   font-size: 14px;
   line-height: 24px;
   color: var(--cinder-light);
+}
+
+@media only screen and (max-width: 1150px) {
+  .contact-section .contact-wrapper .contact-form {
+    margin-right: 88px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .contact-section {
+    padding: 72px 0 88px;
+  }
+
+  .contact-section .contact-wrapper .contact-form {
+    margin-right: 40px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-section .contact-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .contact-section .contact-wrapper .contact-form {
+    margin-right: 0;
+    max-width: initial;
+    order: 2;
+  }
+
+  .contact-section .contact-wrapper .contact-info {
+    margin-bottom: 32px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .contact-section .contact-wrapper .contact-info .contact-info-item {
+    margin-bottom: 32px;
+  }
 }
 </style>

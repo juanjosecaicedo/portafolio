@@ -58,7 +58,7 @@ onMounted(() => {
             <div v-for="(item, index) in educationAndSkills.skills" :key="index" class="progress-bar">
               <p class="label">{{ item.label }}</p>
               <div class="main-bar">
-                <div class="fill" :data-width="item.dataWidth" :style="{width: item.dataWidth+'%'}"></div>
+                <div class="fill" :data-width="item.dataWidth" :style="{ width: item.dataWidth + '%' }"></div>
               </div>
             </div>
           </div>
@@ -179,5 +179,43 @@ onMounted(() => {
 
 .education-skill-section .hid {
   color: var(--purple);
+}
+
+@media only screen and (max-width: 1150px) {
+  .education-skill-section .education-skill-wrapper .education {
+    margin-right: 80px;
+  }
+
+  .education-skill-section .education-skill-wrapper .skill .description {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .education-skill-section {
+    padding: 80px 0 64px;
+  }
+
+  .education-skill-section .education-skill-wrapper .education {
+    margin-right: 40px;
+    min-width: initial;
+    flex: 0 0 calc(50% - 40px);
+    padding-top: 88px;
+  }
+
+  .education-skill-section .education-skill-wrapper .skill .description {
+    padding-top: 24px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .education-skill-section .education-skill-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .education-skill-section .education-skill-wrapper .education {
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
 }
 </style>

@@ -4,9 +4,11 @@ import { onMounted, reactive, ref } from "vue";
 
 import resume from "../assets/resume.pdf";
 import sprite from "../assets/img/sprite.svg";
+import logoWhite from "../assets/img/logo/png/logo-no-background.png"
 import { headerLink } from "../constants"
 
 const active = ref('#services');
+const logo = ref(logoWhite)
 
 // Dark theme
 onMounted(() => {
@@ -27,9 +29,7 @@ function themeToggle() {
   <header class="header">
     <div class="container">
       <div class="logo" data-aos-delay="200" data-aos="fade-down">
-        <svg viewBox="0 0 114 41">
-          <use :xlink:href="sprite + '#logo'"></use>
-        </svg>
+        <img :src="logo" width="50" alt="logo">
       </div>
       <nav class="nav">
         <ul class="nav-links">
@@ -223,5 +223,83 @@ function themeToggle() {
 
 [data-theme="dark"] .header .mobile-menu-toggle {
   fill: var(--white);
+}
+
+@media only screen and (max-width: 1050px) {
+  .header .nav .nav-links li:not(:last-of-type) {
+    margin-right: 40px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .header {
+    margin-top: 5px;
+    border-bottom: 1px solid var(--light-2);
+  }
+
+  .header .mobile-menu-toggle {
+    display: block;
+  }
+
+  .header .nav .nav-links {
+    display: initial;
+    position: absolute;
+    right: 62px;
+    top: 70px;
+    padding: 16px 24px;
+    background: var(--white);
+    border: 1px solid var(--light-2);
+    line-height: 32px;
+    width: 170px;
+    border-radius: 0 0 4px 4px;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility, opacity .3s;
+  }
+
+  .header .nav .nav-links.active {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+  }
+
+  [data-theme="dark"] .header .nav .nav-links {
+    background: var(--midnight-express);
+  }
+
+  .header .nav .nav-links li:not(:last-of-type) {
+    margin-right: 0;
+  }
+
+  .header .nav .nav-links li.mobile-link {
+    display: block;
+  }
+
+  .header .nav .nav-links li.more-links {
+    display: none;
+  }
+
+  .header .right-content .download-resume {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header .nav .nav-links {
+    right: 34px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .header {
+    margin-top: 0;
+  }
+
+  .header .nav .nav-links {
+    width: 100%;
+    right: 0;
+    line-height: 40px;
+  }
 }
 </style>

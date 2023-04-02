@@ -1,3 +1,9 @@
+<script setup>
+import yeider from "../assets/img/yeider.jpeg";
+import andres from "../assets/img/andres.jpeg";
+import jose from "../assets/img/jose.jpeg";
+</script>
+
 <template>
   <section class="testimonial-section" id="testimonials">
     <div class="container">
@@ -7,25 +13,23 @@
       </div>
       <div class="testimonial-item-wrapper">
         <div class="testimonial-item" data-aos="fade-up" data-aos-delay="50">
-          <img class="avatar" src="assets/img/testimonial-avatar-1.jpg" alt="Amelia Miller">
-          <p class="text">We were very pleased to hear how you resolved our website's user interface issues and
-            challenges.</p>
-          <p class="name">Amelia Miller</p>
-          <p class="tag job-title">Designer</p>
+          <img class="avatar" :src="andres" alt="Andres Solies">
+          <p class="text">Nos complació mucho saber cómo resolvió los problemas y desafíos de la interfaz de usuario de nuestros sitios web.</p>
+          <p class="name">Andres Solis</p>
+          <p class="tag job-title">Diseñador</p>
         </div>
         <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
-          <img class="avatar" src="assets/img/testimonial-avatar-2.jpg" alt="Amelia Miller">
-          <p class="text">I’m glad I decided to work with you. The project was delivered on time with all the
-            requirements.</p>
-          <p class="name">James Delaney</p>
-          <p class="tag job-title">Developer</p>
+          <img class="avatar" :src="yeider" alt="Yeider Mina">
+          <p class="text">Me alegro de haber decidido trabajar contigo. El proyecto fue entregado a tiempo con todos los requisitos.</p>
+          <p class="name">Yeider Adrian Mina</p>
+          <p class="tag job-title">Developer <span class="hid">(full-stack)</span></p>
         </div>
         <div class="testimonial-item" data-aos="fade-up" data-aos-delay="150">
-          <img class="avatar" src="assets/img/testimonial-avatar-3.jpg" alt="Amelia Miller">
-          <p class="text">The management of our projects was always faced with difficulties, but you handled these well.
+          <img class="avatar" :src="jose" alt="Jose Mera">
+          <p class="text">El desarrollo de los proyectos siempre se enfrentó a dificultades, pero las manejaste bien.
           </p>
-          <p class="name">Isabella Bennett</p>
-          <p class="tag job-title">Manager</p>
+          <p class="name">Jose Mera</p>
+          <p class="tag job-title">Developer</p>
         </div>
       </div>
     </div>
@@ -67,6 +71,7 @@
   top: -48px;
   left: 50%;
   transform: translateX(-50%);
+  width: 100px;
 }
 
 [data-theme="dark"] .testimonial-section .testimonial-item-wrapper .testimonial-item .avatar {
@@ -90,4 +95,58 @@
   background: var(--light);
   border: none;
   display: inline-block;
-}</style>
+}
+.testimonial-section .testimonial-item-wrapper .testimonial-item .hid {
+  color: var(--purple);
+}
+
+@media only screen and (max-width: 1150px) {
+  .testimonial-section .testimonial-item-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .testimonial-section .testimonial-item-wrapper .testimonial-item {
+    min-width: initial;
+    width: calc(50% - 16px);
+  }
+
+  .testimonial-section .testimonial-item-wrapper .testimonial-item:not(:last-of-type) {
+    margin-right: 0;
+    margin-bottom: 80px;
+  }
+
+  .testimonial-section .testimonial-item-wrapper .testimonial-item:first-of-type {
+    margin-right: 32px;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .testimonial-section .testimonial-item-wrapper .testimonial-item {
+    min-width: initial;
+  }
+
+  .testimonial-section .testimonial-item-wrapper .testimonial-item:not(:last-of-type) {
+    margin-right: 32px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .testimonial-section {
+    padding: 80px 0 88px;
+  }
+
+  .testimonial-section .testimonial-item-wrapper {
+    padding-top: 104px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .testimonial-section .testimonial-item-wrapper .testimonial-item {
+    width: 100%;
+  }
+
+  .testimonial-section .testimonial-item-wrapper .testimonial-item:first-of-type {
+    margin-right: 0;
+  }
+}
+</style>
