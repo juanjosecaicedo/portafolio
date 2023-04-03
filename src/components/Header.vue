@@ -11,17 +11,30 @@ const active = ref('#services');
 const logo = ref(logoWhite)
 const stickyClass = ref('');
 const toggleMenu = ref(false);
+const lastScroll = ref(0);
 
 onMounted(() => {
   // Dark theme
   let prevActiveTheme = localStorage.getItem('theme-color');
   document.documentElement.setAttribute("data-theme", prevActiveTheme ? prevActiveTheme : "light");
-});
 
- // Sticky Menu
-if (window.pageYOffset > 32) {
+  // Sticky Menu
+  if (window.pageYOffset > 32) {
     stickyClass.value = 'sticky';
   }
+
+  window.addEventListener("scroll", function () {
+    var currentScroll = window.pageYOffset;
+    if (currentScroll <= 32) {
+      stickyClass.value = '';
+      return;
+    } else {
+      stickyClass.value = 'sticky';
+    }
+    lastScroll.value = currentScroll;
+  });
+});
+
 
 function themeToggle() {
   let currentTheme = document.documentElement.getAttribute("data-theme");
@@ -31,9 +44,9 @@ function themeToggle() {
 }
 
 function setTopScroll() {
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-function toggleMenuMobile(){
+function toggleMenuMobile() {
   toggleMenu.value = !toggleMenu.value;
 }
 
@@ -46,7 +59,7 @@ function toggleMenuMobile(){
         <img :src="logo" width="50" alt="logo">
       </div>
       <nav class="nav">
-        <ul :class="['nav-links', toggleMenu? 'active': '']">
+        <ul :class="['nav-links', toggleMenu ? 'active' : '']">
           <li v-for="(item, index) in headerLink.link" :key="index"
             :class="[active === item.link ? 'active' : '', item.class]" :data-aos-delay="item.aosDelay"
             data-aos="fade-down" @click="active = item.link">
