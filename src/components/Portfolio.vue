@@ -6,7 +6,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import sprite from '../assets/img/sprite.svg';
-import tiendaflores from "../assets/img/tiendaflores.png"
+import { portfolio } from '../constants/index';
+
 
 const modules = [
   Navigation, Scrollbar
@@ -65,72 +66,18 @@ const scrollbar = {
         <!-- swiper  -->
         <swiper :modules="modules" :slides-per-view="3" :space-between="10" :navigation="navigation"
           :breakpoints="breakpoints" :scrollbar="scrollbar">
-          <swiper-slide>
+          <swiper-slide v-for="(item, index) in portfolio" :key="index">
             <article class="portfolio-item">
               <figure>
-                <img :src="tiendaflores">
+                <img :src="item.img">
               </figure>
               <div class="detail">
-                <h4 class="title">tiendaflores</h4>
+                <h4 class="title">{{ item.title }}</h4>
                 <div class="bottom">
-                  <span class="tag">Magento 2</span>
-                  <a class="link" href="#">
+                  <span class="tag" v-for="(tag, i) in item.tag" :key="i">{{ tag }}</span>
+                  <a class="link" :href="item.link" target="_blank">
                     <svg viewBox="0 0 24 24">
-                      <use xlink:href="assets/img/sprite.svg#link"></use>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </swiper-slide>
-          <swiper-slide>
-            <article class="portfolio-item">
-              <figure>
-                <img src="assets/img/portfolio-item-2.jpg">
-              </figure>
-              <div class="detail">
-                <h4 class="title">Dashboard Website.</h4>
-                <div class="bottom">
-                  <span class="tag">React</span>
-                  <a class="link" href="#">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="assets/img/sprite.svg#link"></use>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </swiper-slide>
-          <swiper-slide>
-            <article class="portfolio-item">
-              <figure>
-                <img src="assets/img/portfolio-item-3.jpg">
-              </figure>
-              <div class="detail">
-                <h4 class="title">Support Center Website.</h4>
-                <div class="bottom">
-                  <span class="tag">PHP</span>
-                  <a class="link" href="#">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="assets/img/sprite.svg#link"></use>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </article>
-          </swiper-slide>
-          <swiper-slide>
-            <article class="portfolio-item">
-              <figure>
-                <img src="assets/img/portfolio-item-4.jpg">
-              </figure>
-              <div class="detail">
-                <h4 class="title">Blog Website.</h4>
-                <div class="bottom">
-                  <span class="tag">Jekyll</span>
-                  <a class="link" href="#">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="assets/img/sprite.svg#link"></use>
+                      <use :xlink:href="sprite+'#link'"></use>
                     </svg>
                   </a>
                 </div>

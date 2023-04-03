@@ -11,6 +11,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "aos": "^2.3.4",
+    "motion": "^10.15.5",
     "swiper": "^9.1.1",
     "vee-validate": "^4.8.4",
     "vue": "^3.2.47",

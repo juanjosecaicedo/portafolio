@@ -1,5 +1,11 @@
 
 import resume from "../assets/resume.pdf";
+import tiendaflores from "../assets/img/tiendaflores.png";
+import tiendaliola from "../assets/img/tiendaliola.png";
+import mercadopacific from "../assets/img/mercadopacific.png";
+import construplaza from "../assets/img/construplaza.png";
+import eysi from "../assets/img/eysi.png";
+
 const services = [
   {
     icon: '#ux-service',
@@ -18,6 +24,52 @@ const services = [
     text: 'Crea y mantén tus sitios web y también cuida su rendimiento y capacidad de tráfico.'
   }
 ];
+
+const portfolio = [
+  {
+    img: tiendaflores,
+    title: 'Tienda Flores (Ecommerce)',
+    link: 'http://tiendaliola.cl/',
+    tag: [
+      'Magento 2'
+    ]
+  },
+  {
+    img: tiendaliola,
+    title: 'Tienda Liola (Ecommerce)',
+    link: 'https://www.tiendaflores.cl/',
+    tag: [
+      'Magento 2'
+    ]
+  },
+  {
+    img: mercadopacific,
+    title: 'Mercado Pacific',
+    link: 'https://mercadopacific.com/',
+    tag: [
+      'Wordpress',
+      'Wsfm Marketplace'
+    ]
+  },
+  {
+    img: construplaza,
+    title: 'Construplaza (Ecommerce)',
+    link: 'https://mcstaging.mts.cl/construplaza',
+    tag: [
+      'Magento 2'
+    ]
+  },
+  {
+    img: eysi,
+    title: 'eysi (ERP)',
+    link: 'https://eysi.co/',
+    tag: [
+      'html',
+      'javascript',
+      'php',
+    ]
+  }
+]
 
 const socials = [
   {
@@ -291,4 +343,4 @@ const experience = [
 
 
 
-export { services, socials, headerLink, educationAndSkills, experience };
+export { services, socials, headerLink, educationAndSkills, experience, portfolio };

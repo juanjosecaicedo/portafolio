@@ -9,12 +9,17 @@ import { headerLink } from "../constants"
 
 const active = ref('#services');
 const logo = ref(logoWhite)
+const stickyClass = ref('');
 
-// Dark theme
 onMounted(() => {
+  // Dark theme
   let prevActiveTheme = localStorage.getItem('theme-color');
   document.documentElement.setAttribute("data-theme", prevActiveTheme ? prevActiveTheme : "light");
 
+  // Sticky Menu
+  if (window.pageYOffset > 32) {
+    stickyClass.value = 'sticky';
+  }
 });
 
 function themeToggle() {
@@ -26,7 +31,7 @@ function themeToggle() {
 </script>
 
 <template>
-  <header class="header">
+  <header :class="['header', stickyClass]">
     <div class="container">
       <div class="logo" data-aos-delay="200" data-aos="fade-down">
         <img :src="logo" width="50" alt="logo">

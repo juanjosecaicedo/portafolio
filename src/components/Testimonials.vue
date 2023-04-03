@@ -8,8 +8,8 @@ import jose from "../assets/img/jose.jpeg";
   <section class="testimonial-section" id="testimonials">
     <div class="container">
       <div class="section-name" data-aos="fade-up">
-        <p class="above-title">My clients</p>
-        <h4 class="title">Testimonials</h4>
+        <p class="above-title">Mis clientes</p>
+        <h4 class="title">Testimonios</h4>
       </div>
       <div class="testimonial-item-wrapper">
         <div class="testimonial-item" data-aos="fade-up" data-aos-delay="50">
