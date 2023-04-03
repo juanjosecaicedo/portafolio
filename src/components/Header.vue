@@ -1,6 +1,6 @@
 
 <script setup>
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref, computed } from "vue";
 
 import resume from "../assets/resume.pdf";
 import sprite from "../assets/img/sprite.svg";
@@ -16,12 +16,12 @@ onMounted(() => {
   // Dark theme
   let prevActiveTheme = localStorage.getItem('theme-color');
   document.documentElement.setAttribute("data-theme", prevActiveTheme ? prevActiveTheme : "light");
+});
 
-  // Sticky Menu
-  if (window.pageYOffset > 32) {
+ // Sticky Menu
+if (window.pageYOffset > 32) {
     stickyClass.value = 'sticky';
   }
-});
 
 function themeToggle() {
   let currentTheme = document.documentElement.getAttribute("data-theme");
