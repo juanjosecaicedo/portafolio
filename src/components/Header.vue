@@ -10,6 +10,7 @@ import { headerLink } from "../constants"
 const active = ref('#services');
 const logo = ref(logoWhite)
 const stickyClass = ref('');
+const toggleMenu = ref(false);
 
 onMounted(() => {
   // Dark theme
@@ -28,17 +29,24 @@ function themeToggle() {
   localStorage.setItem("theme-color", switchToTheme)
   document.documentElement.setAttribute("data-theme", switchToTheme);
 }
+
+function setTopScroll() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function toggleMenuMobile(){
+  toggleMenu.value = !toggleMenu.value;
+}
+
 </script>
 
 <template>
   <header :class="['header', stickyClass]">
     <div class="container">
-      <div class="logo" data-aos-delay="200" data-aos="fade-down">
+      <div class="logo" data-aos-delay="200" data-aos="fade-down" @click="setTopScroll">
         <img :src="logo" width="50" alt="logo">
       </div>
       <nav class="nav">
-        <ul class="nav-links">
-
+        <ul :class="['nav-links', toggleMenu? 'active': '']">
           <li v-for="(item, index) in headerLink.link" :key="index"
             :class="[active === item.link ? 'active' : '', item.class]" :data-aos-delay="item.aosDelay"
             data-aos="fade-down" @click="active = item.link">
@@ -66,7 +74,7 @@ function themeToggle() {
           </svg>
         </div>
         <a :href="resume" target="_blank" class="btn btn-outline-light download-resume">Resumen</a>
-        <svg class="mobile-menu-toggle" viewBox="0 0 24 24">
+        <svg class="mobile-menu-toggle" viewBox="0 0 24 24" @click="toggleMenu = !toggleMenu">
           <use :xlink:href="sprite + '#menu'"></use>
         </svg>
       </div>

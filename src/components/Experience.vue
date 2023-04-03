@@ -167,6 +167,7 @@ function setActive($event, tab) {
 .experience-section .content .headline .stack-list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   padding: 16px 0;
 }
 
