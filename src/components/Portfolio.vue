@@ -1,13 +1,11 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Scrollbar } from 'swiper'
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import sprite from '../assets/img/sprite.svg';
 import { portfolio } from '../constants/index';
-
 
 const modules = [
   Navigation, Scrollbar
@@ -38,8 +36,6 @@ const scrollbar = {
 }
 
 </script>
-
-
 
 <template>
   <section class="portfolio-section" id="portfolios">
@@ -226,10 +222,6 @@ const scrollbar = {
   width: 24px;
   height: 24px;
   fill: var(--cinder-light);
-}
-
-.portfolio-section .swiper-wrapper {
-  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 992px) {

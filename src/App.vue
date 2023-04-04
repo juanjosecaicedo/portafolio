@@ -9,6 +9,7 @@ import Testimonials from './components/Testimonials.vue'
 import EducationSkill from './components/EducationSkill.vue';
 import Contact from './components/Contact.vue';
 import FooterComponent from './components/Footer.vue';
+import MotionScroll from './components/MotionScroll.vue';
 import AOS from 'aos';
 
 // AOS config
@@ -26,6 +27,7 @@ AOS.init({
   <HeaderComponent />
   <main>
     <Hero />
+    <MotionScroll />
     <Service />
     <Portfolio />
     <Experience />

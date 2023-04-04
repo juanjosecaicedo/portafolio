@@ -196,7 +196,7 @@ const educationAndSkills = {
       dataWidth: 75
     },
     {
-      label: 'magento 2',
+      label: 'Magento 2',
       dataWidth: 70
     },
     {

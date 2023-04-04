@@ -50,6 +50,10 @@ function toggleMenuMobile() {
   toggleMenu.value = !toggleMenu.value;
 }
 
+function setActiveLink(link, event) {
+  active.value = link;
+}
+
 </script>
 
 <template>
@@ -62,7 +66,7 @@ function toggleMenuMobile() {
         <ul :class="['nav-links', toggleMenu ? 'active' : '']">
           <li v-for="(item, index) in headerLink.link" :key="index"
             :class="[active === item.link ? 'active' : '', item.class]" :data-aos-delay="item.aosDelay"
-            data-aos="fade-down" @click="active = item.link">
+            data-aos="fade-down" @click="(event) => setActiveLink(item.link, event)">
             <a :href=item.link>{{ item.text }}</a>
           </li>
           <li data-aos-delay="400" data-aos="fade-down" class="more-links">
