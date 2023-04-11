@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import yeider from "../assets/img/yeider.jpeg";
 import andres from "../assets/img/andres.jpeg";
 import jose from "../assets/img/jose.jpeg";

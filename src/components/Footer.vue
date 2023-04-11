@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import sprite from '../assets/img/sprite.svg';
 import { socials } from '../constants';
 </script>
@@ -6,7 +6,7 @@ import { socials } from '../constants';
 <template>
   <footer class="footer">
     <ul class="social-icons" data-aos="fade-up" data-aos-delay="50">
-      <li v-for="(item, index) in socials">
+      <li v-for="(item, index) in socials" :key="index">
         <a :href="item.href" target="_blank">
           <svg viewBox="0 0 24 24">
             <use :xlink:href="sprite + item.icon"></use>

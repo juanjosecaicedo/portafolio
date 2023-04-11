@@ -1,15 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import { experience } from '../constants';
-import { ref } from 'vue';
+import { Ref, ref } from 'vue';
 import sprite from '../assets/img/sprite.svg';
 
-const active = ref('adwise');
-const topSelector = ref(0)
+const active: Ref<string> = ref('adwise');
+const topSelector: Ref<string> = ref('0');
 
-function setActive($event, tab) {
-  $event.preventDefault();
-  window.innerWidth > 999 ? topSelector.value = $event.target.offsetTop + 'px' : topSelector.value = null;
-  topSelector.value = $event.target.offsetTop + 'px';
+function setActive(event: MouseEvent, tab: string) {
+  event.preventDefault();
+  const target = event.target as HTMLLIElement;
+  window.innerWidth > 999 ? topSelector.value = `${target.offsetTop}px` : topSelector.value = '';
+  topSelector.value = `${target.offsetTop}px`;
   active.value = tab;
 }
 

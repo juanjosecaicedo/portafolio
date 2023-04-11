@@ -1,5 +1,5 @@
 
-<script setup>
+<script setup lang="ts">
 import sprite from '../assets/img/sprite.svg'
 import { socials } from '../constants';
 import avatar from '../assets/img/avatar.png'

@@ -6,7 +6,13 @@ import mercadopacific from "../assets/img/mercadopacific.png";
 import construplaza from "../assets/img/construplaza.png";
 import eysi from "../assets/img/eysi.png";
 
-const services = [
+interface Services {
+  icon: string,
+  title: string,
+  text: string
+}
+
+const services: Services[] = [
   {
     icon: '#ux-service',
     title: 'Creatividad en proyectos',

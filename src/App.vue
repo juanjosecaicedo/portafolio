@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import HeaderComponent from './components/Header.vue';
 import Cursor from './components/Cursor.vue';
 import Hero from './components/Hero.vue';
@@ -17,7 +17,7 @@ AOS.init({
   once: true,
   offset: 10,
   duration: 600,
-  easing: 'cubic-bezier(0.42, 0, 0.12, 1.28)'
+  easing: 'ease-out'
 });
 
 </script>

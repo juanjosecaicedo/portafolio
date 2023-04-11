@@ -1,39 +1,50 @@
-<script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Scrollbar } from 'swiper'
+<script setup lang="ts">
+
+import { register } from "swiper/element"
+
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import 'swiper/element/css/navigation';
 import sprite from '../assets/img/sprite.svg';
 import { portfolio } from '../constants/index';
+import { Ref, onMounted, ref } from 'vue';
 
-const modules = [
-  Navigation, Scrollbar
-]
+const swiper: Ref = ref(null);
+const next: Ref = ref(null);
+const prev: Ref = ref(null);
 
-const breakpoints = {
-  0: {
-    slidesPerView: 1,
-    spaceBetween: 16,
-  },
-  769: {
-    slidesPerView: 2,
-    spaceBetween: 32,
-  },
-  1151: {
-    slidesPerView: 3,
-    spaceBetween: 56,
-  },
-}
+register();
+onMounted(() => {
+  const swiperEl = swiper.value;
+  const swiperParams = {
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 16,
+      },
+      769: {
+        slidesPerView: 2,
+        spaceBetween: 32,
+      },
+      1151: {
+        slidesPerView: 3,
+        spaceBetween: 56,
+      }
+    },
+    navigation: {
+      nextEl: next.value, //'.slider-navigation .next',
+      prevEl: prev.value  //'.slider-navigation .prev'
+    }
+  }
 
-const navigation = {
-  nextEl: '.next',
-  prevEl: '.prev'
-}
-
-const scrollbar = {
-  hide: true
-}
+  Object.assign(swiperEl, swiperParams);
+  swiperEl.initialize();
+  document.querySelector('.slider-navigation .next')?.addEventListener('click', function(){  
+    swiperEl.swiper.slideNext();  
+  })
+  document.querySelector('.slider-navigation .prev')?.addEventListener('click', function(){  
+    swiperEl.swiper.slidePrev();  
+  })
+})
 
 </script>
 
@@ -46,12 +57,12 @@ const scrollbar = {
           <h4 class="title">Portafolios</h4>
         </div>
         <div class="slider-navigation">
-          <div class="prev">
+          <div class="prev" ref="prev">
             <svg viewBox="0 0 24 24">
               <use :xlink:href="sprite + '#arrow-left'"></use>
             </svg>
           </div>
-          <div class="next">
+          <div class="next" ref="next">
             <svg viewBox="0 0 24 24">
               <use :xlink:href="sprite + '#arrow-right'"></use>
             </svg>
@@ -60,8 +71,7 @@ const scrollbar = {
       </div>
       <div class="portfolio-item-wrapper">
         <!-- swiper  -->
-        <swiper :modules="modules" :slides-per-view="3" :space-between="10" :navigation="navigation"
-          :breakpoints="breakpoints" :scrollbar="scrollbar">
+        <swiper-container ref="swiper" init="false" :slides-per-view="3" :space-between="10" navigation="true">
           <swiper-slide v-for="(item, index) in portfolio" :key="index">
             <article class="portfolio-item">
               <figure>
@@ -73,14 +83,14 @@ const scrollbar = {
                   <span class="tag" v-for="(tag, i) in item.tag" :key="i">{{ tag }}</span>
                   <a class="link" :href="item.link" target="_blank">
                     <svg viewBox="0 0 24 24">
-                      <use :xlink:href="sprite+'#link'"></use>
+                      <use :xlink:href="sprite + '#link'"></use>
                     </svg>
                   </a>
                 </div>
               </div>
             </article>
           </swiper-slide>
-        </swiper>
+        </swiper-container>
       </div>
     </div>
   </section>

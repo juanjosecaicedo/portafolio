@@ -1,9 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { educationAndSkills } from '../constants';
-import { ref, onMounted } from 'vue';
+import { ref, Ref } from 'vue';
 
 
-function isInViewport(el) {
+/*function isInViewport(el: any): Object {
   var rect = el.getBoundingClientRect();
   return (
     rect.top >= 0 &&
@@ -12,8 +12,9 @@ function isInViewport(el) {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
+*/
 
-const progressBar = ref(null);
+const progressBar: Ref<any> = ref(null);
 /*
 onMounted(() => {
   const bars = progressBar.value.querySelectorAll('.main-bar .fill')

@@ -1,12 +1,12 @@
-<script setup>
-import { ref, onMounted, computed } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted, computed, Ref } from 'vue';
 
-const xChild = ref(0);
-const yChild = ref(0);
-const xParent = ref(0);
-const yParent = ref(0);
-const hover = ref(false);
-const hideCursor = ref(true);
+const xChild: Ref<number> = ref(0);
+const yChild: Ref<number> = ref(0);
+const xParent: Ref<number> = ref(0);
+const yParent: Ref<number> = ref(0);
+const hover: Ref<Boolean> = ref(false);
+const hideCursor: Ref<Boolean> = ref(true);
 
 const cursorCircle = computed(() => {
   return `transform: translateX(${xParent.value}px) translateY(${yParent.value}px) translateZ(0) translate3d(0, 0, 0);`;
@@ -16,7 +16,7 @@ const cursorPoint = computed(() => {
   return `transform: translateX(${xChild.value - 3}px) translateY(${yChild.value - 3}px) translateZ(0) translate3d(0, 0, 0);`
 });
 
-function moveCursor(e) {
+function moveCursor(e: MouseEvent) {
   xChild.value = e.clientX;
   yChild.value = e.clientY;
   setTimeout(() => {
@@ -27,11 +27,11 @@ function moveCursor(e) {
 
 onMounted(() => {
   document.addEventListener('mousemove', moveCursor);
-  document.addEventListener('mouseleave', e => {
+  document.addEventListener('mouseleave', () => {
     hideCursor.value = true;
   });
 
-  document.addEventListener('mouseenter', e => {
+  document.addEventListener('mouseenter', () => {
     hideCursor.value = false;
   });
 })

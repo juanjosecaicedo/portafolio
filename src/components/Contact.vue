@@ -1,14 +1,14 @@
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { Ref, ref } from 'vue';
 import sprite from '../assets/img/sprite.svg';
 import { Field, Form, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import emailjs from "@emailjs/browser";
 
-const showSuccessMessage = ref(false);
-const failSubmitMessage = ref(false);
+const showSuccessMessage: Ref<Boolean> = ref(false);
+const failSubmitMessage: Ref<Boolean> = ref(false);
 
-function onSubmit(values, { resetForm }) {
+function onSubmit(values: any, { resetForm }: any) {
   console.log(values);
 
   //console.log(JSON.stringify(values, null, 2));

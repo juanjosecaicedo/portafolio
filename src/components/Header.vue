@@ -1,21 +1,21 @@
 
-<script setup>
-import { onMounted, reactive, ref, computed } from "vue";
+<script setup lang="ts">
+import { Ref, onMounted, ref } from "vue";
 
 import resume from "../assets/resume.pdf";
 import sprite from "../assets/img/sprite.svg";
 import logoWhite from "../assets/img/logo/png/logo-no-background.png"
 import { headerLink } from "../constants"
 
-const active = ref('#services');
-const logo = ref(logoWhite)
-const stickyClass = ref('');
-const toggleMenu = ref(false);
-const lastScroll = ref(0);
+const active: Ref<String> = ref('#services');
+const logo: Ref<string> = ref(logoWhite)
+const stickyClass: Ref<String> = ref('');
+const toggleMenu: Ref<Boolean> = ref(false);
+const lastScroll: Ref<Number> = ref(0);
 
 onMounted(() => {
   // Dark theme
-  let prevActiveTheme = localStorage.getItem('theme-color');
+  let prevActiveTheme: string | null = localStorage.getItem('theme-color');
   document.documentElement.setAttribute("data-theme", prevActiveTheme ? prevActiveTheme : "light");
 
   // Sticky Menu
@@ -36,21 +36,19 @@ onMounted(() => {
 });
 
 
-function themeToggle() {
-  let currentTheme = document.documentElement.getAttribute("data-theme");
-  let switchToTheme = currentTheme === "dark" ? "light" : "dark";
+function themeToggle(): void {
+  let currentTheme: string | null = document.documentElement.getAttribute("data-theme");
+  let switchToTheme: string = currentTheme === "dark" ? "light" : "dark";
+
   localStorage.setItem("theme-color", switchToTheme)
   document.documentElement.setAttribute("data-theme", switchToTheme);
 }
 
-function setTopScroll() {
+function setTopScroll(): void {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-function toggleMenuMobile() {
-  toggleMenu.value = !toggleMenu.value;
-}
 
-function setActiveLink(link, event) {
+function setActiveLink(link: string): void {
   active.value = link;
 }
 
@@ -66,7 +64,7 @@ function setActiveLink(link, event) {
         <ul :class="['nav-links', toggleMenu ? 'active' : '']">
           <li v-for="(item, index) in headerLink.link" :key="index"
             :class="[active === item.link ? 'active' : '', item.class]" :data-aos-delay="item.aosDelay"
-            data-aos="fade-down" @click="(event) => setActiveLink(item.link, event)">
+            data-aos="fade-down" @click="() => setActiveLink(item.link)">
             <a :href=item.link>{{ item.text }}</a>
           </li>
           <li data-aos-delay="400" data-aos="fade-down" class="more-links">

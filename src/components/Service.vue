@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { services } from '../constants';
 import sprite from './../assets/img/sprite.svg';
 </script>
