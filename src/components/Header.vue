@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { Ref, onMounted, ref } from "vue";
 
-import resume from "../assets/resume.pdf";
+import resume from "../assets/resume-v2.pdf";
 import sprite from "../assets/img/sprite.svg";
 import logoWhite from "../assets/img/logo/png/logo-no-background.png"
 import { headerLink } from "../constants"

@@ -1,5 +1,5 @@
 
-import resume from "../assets/resume.pdf";
+import resume from "../assets/resume-v2.pdf";
 import tiendaflores from "../assets/img/tiendaflores.png";
 import tiendaliola from "../assets/img/tiendaliola.png";
 import mercadopacific from "../assets/img/mercadopacific.png";
@@ -206,6 +206,10 @@ const educationAndSkills = {
       dataWidth: 70
     },
     {
+      label: 'Laravel',
+      dataWidth: 75
+    },
+    {
       label: 'Node.js',
       dataWidth: 50
     },
@@ -256,7 +260,7 @@ const experience = [
       "Desarrollar en módulos para extender las funcionalidades nativas de Magento",
     ]
   },
-  {
+  /*{
     tab: 'agsoftware',
     title: 'Ag Software',
     jobTitle: 'Desarrollador Magento 2',
@@ -278,7 +282,7 @@ const experience = [
       "Desarrollar en módulos para extender las funcionalidades de distintos sitios.",
       "velar por el continuo funcionamiento de los sitio en producción.",
     ]
-  },
+  },*/
   {
     tab: 'enjambre',
     title: 'Enjambre Group SAS.',

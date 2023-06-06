@@ -9,8 +9,9 @@ import { portfolio } from '../constants/index';
 import { Ref, onMounted, ref } from 'vue';
 
 const swiper: Ref = ref(null);
-const next: Ref = ref(null);
-const prev: Ref = ref(null);
+const obj  = {
+  swiper: {}
+};
 
 register();
 onMounted(() => {
@@ -29,20 +30,18 @@ onMounted(() => {
         slidesPerView: 3,
         spaceBetween: 56,
       }
-    },
-    navigation: {
-      nextEl: next.value, //'.slider-navigation .next',
-      prevEl: prev.value  //'.slider-navigation .prev'
     }
   }
 
   Object.assign(swiperEl, swiperParams);
   swiperEl.initialize();
-  document.querySelector('.slider-navigation .next')?.addEventListener('click', function(){  
-    swiperEl.swiper.slideNext();  
+  obj.swiper = swiperEl.swiper;
+
+  document.querySelector('.slider-navigation .next')?.addEventListener('click', function () {
+    swiperEl.swiper.slideNext();
   })
-  document.querySelector('.slider-navigation .prev')?.addEventListener('click', function(){  
-    swiperEl.swiper.slidePrev();  
+  document.querySelector('.slider-navigation .prev')?.addEventListener('click', function () {
+    swiperEl.swiper.slidePrev();
   })
 })
 
