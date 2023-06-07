@@ -19,7 +19,7 @@
     --cinder: var(--white);
     --cinder-light: #dddddd;
     --light-4: #51576c;
-    --purple-light-2: rgba(126, 116, 241, .04);
+    --purple-light-2: rgba(2, 128, 144);
 }
 
 ::selection {
@@ -153,6 +153,7 @@ section {
 
 body {
     line-height: 1;
+    position: relative;
 }
 
 ol,

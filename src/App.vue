@@ -11,6 +11,7 @@ import Contact from './components/Contact.vue';
 import FooterComponent from './components/Footer.vue';
 import MotionScroll from './components/MotionScroll.vue';
 import AOS from 'aos';
+import ScrollToTop from './components/ScrollToTop.vue';
 
 // AOS config
 AOS.init({
@@ -19,7 +20,6 @@ AOS.init({
   duration: 600,
   easing: 'ease-out'
 });
-
 </script>
 
 <template >
@@ -35,5 +35,6 @@ AOS.init({
     <EducationSkill />
     <Contact />
   </main>
+  <ScrollToTop />
   <FooterComponent />
 </template>
