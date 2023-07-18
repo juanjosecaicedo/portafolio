@@ -35,7 +35,7 @@ const portfolio = [
   {
     img: tiendaflores,
     title: 'Tienda Flores (Ecommerce)',
-    link: 'http://tiendaliola.cl/',
+    link: 'https://www.tiendaflores.cl/',
     tag: [
       'Magento 2'
     ]
@@ -43,7 +43,7 @@ const portfolio = [
   {
     img: tiendaliola,
     title: 'Tienda Liola (Ecommerce)',
-    link: 'https://www.tiendaflores.cl/',
+    link: 'http://tiendaliola.cl/',
     tag: [
       'Magento 2'
     ]
