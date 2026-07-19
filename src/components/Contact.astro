@@ -1,0 +1,44 @@
+---
+import { contact } from "../data/portfolio";
+---
+
+<section
+  id="contact"
+  class="reveal px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-28 bg-stone-900 mt-16 sm:mt-20 lg:mt-24"
+>
+  <div class="max-w-6xl mx-auto text-center">
+    <div
+      class="font-mono text-[13px] text-(--accent) tracking-wide uppercase mb-5"
+    >
+      Contacto
+    </div>
+    <h2
+      class="text-[30px] sm:text-5xl font-extrabold tracking-tight text-stone-50 mb-6"
+    >
+      ¿Tienes un proyecto en mente?
+    </h2>
+    <p class="text-[17px] text-stone-400 max-w-lg mx-auto mb-9">
+      Escríbeme y conversemos sobre cómo puedo ayudarte a construirlo.
+    </p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a
+        href={`mailto:${contact.email}`}
+        class="px-7 py-3.5 bg-(--accent) text-stone-900 rounded-sm font-bold text-[15px] hover:opacity-90"
+      >
+        {contact.email}
+      </a>
+      <a
+        href={contact.github}
+        class="px-7 py-3.5 border border-stone-700 text-stone-50 rounded-sm font-semibold text-[15px] hover:border-stone-500"
+      >
+        GitHub
+      </a>
+      <a
+        href={contact.linkedin}
+        class="px-7 py-3.5 border border-stone-700 text-stone-50 rounded-sm font-semibold text-[15px] hover:border-stone-500"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>

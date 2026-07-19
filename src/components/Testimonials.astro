@@ -1,0 +1,30 @@
+---
+import { testimonials } from "../data/portfolio";
+---
+
+<section
+  id="testimonials"
+  class="reveal max-w-6xl mx-auto px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24"
+>
+  <div
+    class="font-mono text-[13px] text-(--accent) tracking-wide uppercase mb-4"
+  >
+    Testimonios
+  </div>
+  <h2 class="text-[28px] sm:text-4xl font-bold tracking-tight mb-10 max-w-xl">
+    Lo que dicen de trabajar conmigo.
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      testimonials.map((t) => (
+        <div class="border border-stone-200 rounded-md p-7">
+          <div class="text-[15.5px] leading-relaxed text-stone-800 mb-5">
+            “{t.quote}”
+          </div>
+          <div class="font-bold text-[14.5px]">{t.name}</div>
+          <div class="font-mono text-[12.5px] text-stone-400">{t.role}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>

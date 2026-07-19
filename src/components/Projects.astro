@@ -1,0 +1,46 @@
+---
+import { projects } from "../data/portfolio";
+---
+
+<section
+  id="projects"
+  class="reveal max-w-6xl mx-auto px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24"
+>
+  <div
+    class="font-mono text-[13px] text-(--accent) tracking-wide uppercase mb-4"
+  >
+    Proyectos destacados
+  </div>
+  <h2 class="text-[28px] sm:text-4xl font-bold tracking-tight mb-10 max-w-xl">
+    Una muestra de lo que he construido.
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      projects.map((proj) => (
+        <a
+          href={proj.link}
+          class="block border border-stone-200 rounded-md overflow-hidden text-stone-900 hover:border-stone-300"
+        >
+          <div class="h-[200px] flex items-center justify-center bg-[repeating-linear-gradient(135deg,#f5f5f4_0_12px,#efeeec_12px_24px)]">
+            <span class="font-mono text-xs text-stone-400">
+              {proj.placeholder}
+            </span>
+          </div>
+          <div class="p-6">
+            <div class="font-bold text-lg mb-2">{proj.name}</div>
+            <div class="text-[14.5px] leading-relaxed text-stone-600 mb-4">
+              {proj.description}
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              {proj.stack.map((s) => (
+                <span class="font-mono text-[11.5px] px-2.5 py-1 bg-stone-100 rounded-sm text-stone-500">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+import { skills } from "../data/portfolio";
+---
+
+<section
+  id="skills"
+  class="reveal max-w-6xl mx-auto px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24"
+>
+  <div
+    class="font-mono text-[13px] text-(--accent) tracking-wide uppercase mb-4"
+  >
+    Skills &amp; Stack
+  </div>
+  <h2 class="text-[28px] sm:text-4xl font-bold tracking-tight mb-10 max-w-xl">
+    Herramientas con las que trabajo a diario.
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    {
+      skills.map((cat) => (
+        <div>
+          <div class="font-bold text-[15px] mb-3.5">{cat.name}</div>
+          <div class="flex flex-wrap gap-2">
+            {cat.items.map((tag) => (
+              <span class="font-mono text-[12.5px] px-3 py-1.5 bg-stone-100 border border-stone-200 rounded-sm text-stone-700">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

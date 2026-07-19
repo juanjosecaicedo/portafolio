@@ -1,0 +1,79 @@
+---
+import { nav } from "../data/portfolio";
+---
+
+<header
+  class="sticky top-0 z-50 flex items-center justify-between gap-4 px-5 py-5 sm:px-8 lg:px-16 bg-stone-50/90 backdrop-blur-md border-b border-stone-200"
+>
+  <a
+    href="#top"
+    class="font-mono font-semibold text-lg tracking-tight text-stone-900"
+  >
+    juanjose<span class="text-(--accent)">.dev</span>
+  </a>
+
+  <nav class="hidden md:flex gap-8">
+    {
+      nav.map((item) => (
+        <a
+          href={item.href}
+          class="font-mono text-[13px] tracking-wide text-stone-600 uppercase whitespace-nowrap hover:text-stone-900"
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <button
+    id="menu-btn"
+    type="button"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="mobile-nav"
+    class="flex md:hidden items-center justify-center w-10 h-10 border border-stone-300 rounded font-mono text-lg cursor-pointer bg-transparent"
+  >
+    <span id="menu-icon">☰</span>
+  </button>
+</header>
+
+<div
+  id="mobile-nav"
+  class="hidden md:hidden sticky top-[73px] z-40 flex-col gap-4 bg-stone-50 border-b border-stone-200 px-5 py-4 sm:px-8"
+>
+  {
+    nav.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav-link font-mono text-[15px] text-stone-900"
+      >
+        {item.label}
+      </a>
+    ))
+  }
+</div>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  function closeMenu() {
+    mobileNav?.classList.add("hidden");
+    mobileNav?.classList.remove("flex");
+    menuBtn?.setAttribute("aria-expanded", "false");
+    if (menuIcon) menuIcon.textContent = "☰";
+  }
+
+  function toggleMenu() {
+    const isOpen = mobileNav?.classList.toggle("hidden") === false;
+    mobileNav?.classList.toggle("flex", isOpen);
+    menuBtn?.setAttribute("aria-expanded", String(isOpen));
+    if (menuIcon) menuIcon.textContent = isOpen ? "✕" : "☰";
+  }
+
+  menuBtn?.addEventListener("click", toggleMenu);
+  mobileNav
+    ?.querySelectorAll(".mobile-nav-link")
+    .forEach((link) => link.addEventListener("click", closeMenu));
+</script>

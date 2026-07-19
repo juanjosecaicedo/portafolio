@@ -1,0 +1,43 @@
+---
+import { facts } from "../data/portfolio";
+---
+
+<section
+  id="about"
+  class="reveal grid grid-cols-1 lg:grid-cols-[1fr_0.6fr] gap-8 lg:gap-16 max-w-6xl mx-auto px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24"
+>
+  <div>
+    <div
+      class="font-mono text-[13px] text-(--accent) tracking-wide uppercase mb-4"
+    >
+      Sobre mí
+    </div>
+    <h2 class="text-[28px] sm:text-4xl font-bold tracking-tight mb-5">
+      Me apasiona convertir ideas en productos que funcionan.
+    </h2>
+    <p class="text-base leading-relaxed text-stone-600 mb-4">
+      Soy desarrollador full stack con experiencia construyendo aplicaciones web
+      de principio a fin: interfaces cuidadas en React, APIs sólidas en Laravel,
+      y bases de datos bien modeladas. Me interesa tanto el detalle visual como
+      la arquitectura detrás.
+    </p>
+    <p class="text-base leading-relaxed text-stone-600">
+      Trabajo con equipos de producto para pasar de un problema a una solución
+      en producción, sin perder de vista el rendimiento ni la mantenibilidad del
+      código.
+    </p>
+  </div>
+
+  <div class="flex flex-col border-t border-stone-200">
+    {
+      facts.map((fact) => (
+        <div class="flex justify-between py-4 border-b border-stone-200">
+          <span class="font-mono text-[13px] text-stone-400 uppercase tracking-wide">
+            {fact.label}
+          </span>
+          <span class="text-[15px] font-semibold text-right">{fact.value}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>
