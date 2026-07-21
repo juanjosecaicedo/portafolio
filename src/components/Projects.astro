@@ -1,5 +1,6 @@
 ---
 import { projects } from "../data/portfolio";
+import { Image } from "astro:assets";
 ---
 
 <section
@@ -20,11 +21,10 @@ import { projects } from "../data/portfolio";
         <a
           href={proj.link}
           class="block border border-stone-200 rounded-md overflow-hidden text-stone-900 hover:border-stone-300"
+          target="_blank"
         >
           <div class="h-[200px] flex items-center justify-center bg-[repeating-linear-gradient(135deg,#f5f5f4_0_12px,#efeeec_12px_24px)]">
-            <span class="font-mono text-xs text-stone-400">
-              {proj.placeholder}
-            </span>
+            <Image src={proj.image} alt={proj.placeholder} />
           </div>
           <div class="p-6">
             <div class="font-bold text-lg mb-2">{proj.name}</div>

@@ -1,4 +1,10 @@
 const yearWork = new Date().getFullYear() - 2018;
+import liola from "../assets/liolacl_.png";
+import tiendaflores from "../assets/tiendaflorescl_.png";
+import construplaza from "../assets/construplazacl_.png";
+import eysi from "../assets/eysico_.png";
+import mercadopacific from "../assets/mercadopacific.png"
+import graceos from "../assets/graceos_.png"
 
 export const nav = [
   { label: "Sobre mí", href: "#about" },
@@ -24,52 +30,86 @@ export const skills = [
 
 export const projects = [
   {
-    name: "Proyecto uno",
-    description:
-      "Breve descripción del proyecto, el problema que resolvió y el impacto que tuvo.",
-    stack: ["React", "Node", "PostgreSQL"],
-    link: "#",
-    placeholder: "captura del proyecto",
+    name: "graceOS",
+    description: "Software de gestión para el manejo de múltiples iglesias",
+    stack: ["Laravel", "Nextjs", "Mysql"],
+    link: "https://graceos.app/",
+    image: graceos,
+    placeholder: "captura del proyecto graceOS",
   },
   {
-    name: "Proyecto dos",
+    name: "Tienda Flores (Ecommerce)",
     description:
-      "Breve descripción del proyecto, el problema que resolvió y el impacto que tuvo.",
-    stack: ["Astro", "Tailwind"],
-    link: "#",
-    placeholder: "captura del proyecto",
+      "Desarrollo de un ecommerce para la empresa Flores.",
+    stack: ["Magento 2", "PHP", "JavaScript", "MySQL"],
+    link: "https://www.tiendaflores.cl/",
+    image: tiendaflores,
+    placeholder: "captura del proyecto Tienda Flores",
   },
   {
-    name: "Proyecto tres",
+    name: "Tienda Liola (Ecommerce)",
     description:
-      "Breve descripción del proyecto, el problema que resolvió y el impacto que tuvo.",
-    stack: ["Next.js", "MongoDB"],
-    link: "#",
-    placeholder: "captura del proyecto",
+      "Desarrollo de un ecommerce para la empresa Tienda Liola.",
+    stack: ["Magento 2", "PHP", "JavaScript", "MySQL", "Redis", "Elasticsearch"],
+    link: "https://liola.cl/",
+    image: liola,
+    placeholder: "captura del proyecto Tienda Liola",
+  },
+  {
+    name: "Construplaza (Ecommerce)",
+    description:
+      "Desarrollo de un ecommerce para la empresa Construplaza, con funcionalidades como gestión de productos, categorías, usuarios",
+    stack: ["Magento 2", "PHP", "JavaScript", "MySQL"],
+    link: "https://construplaza.cl/",
+    image: construplaza,
+    placeholder: "captura del proyecto Construplaza",
+  },
+  {
+    name: "Mercado Pacific (Marketplace)",
+    description: "Desarrollo de un marketplace para la empresa PlayTech, con funcionalidades como gestión de productos, categorías, usuarios, roles, permisos, facturación electrónica, reportes y estadísticas.",
+    stack: ["Wordpress", "WooCommerce", "PHP", "JavaScript", "MySQL"],
+    link: "https://mercadopacific.com/",
+    image: mercadopacific,
+    placeholder: "captura del proyecto Mercado Pacific",
+  },
+  {
+    name: "Eysi (ERP)",
+    description: "Desarrollo de un ERP para la empresa Eysi, con funcionalidades como gestión de inventario, ventas, compras, usuarios y roles, permisos, facturación electrónica, reportes y estadísticas.",
+    stack: ["PHP", "JavaScript", "MySQL"],
+    link: "https://www.eysi.co/",
+    image: eysi,
+    placeholder: "captura del proyecto Eysi",
   },
 ];
 
 export const experience = [
   {
-    period: "2024 — hoy",
+    period: `2023 — ${new Date().getFullYear()}`,
+    role: "Tecnico Magento",
+    company: "Thinkia",
+    description:
+      "Contruicion de metodos de pago para LG, Contruicion de plugin para Kimai2",
+  },
+  {
+    period: "2022 — 2023",
+    role: "Desarrollador Magento 2",
+    company: "Adwise",
+    description:
+      "Desarrollo de E-commerce en magento 2 (cloud, community). Construir tiendas desde cero hasta su salida a producción brindar soporte a sitio en producción",
+  },
+  {
+    period: "2021 — 2021",
     role: "Full Stack Developer",
-    company: "Empresa actual",
+    company: "Enjambre Group SAS.",
     description:
-      "Desarrollo de features end-to-end, colaboración con diseño y producto, optimización de rendimiento.",
+      "Desarrollar y desplegar sistemas web usando tecnologías más usadas y robustas las cuales pudieran suplir las necesidades de los clientes.",
   },
   {
-    period: "2022 — 2024",
-    role: "Frontend Developer",
-    company: "Empresa anterior",
+    period: "2018 — 2020",
+    role: "Ananalista en Sistemas",
+    company: "Embalaje y Servicios S.A.S",
     description:
-      "Construcción de interfaces con React, mejora de accesibilidad y velocidad de carga.",
-  },
-  {
-    period: "2021 — 2022",
-    role: "Desarrollador Junior",
-    company: "Primer empleo",
-    description:
-      "Mantenimiento de aplicaciones web y soporte en la migración a un nuevo stack.",
+      "Desarrollar sistema de contabilidad y procesos internos administrativos a nivel departamental aplicando estándares de calidad definidos en normativa para desarrollo de software.",
   },
 ];
 
