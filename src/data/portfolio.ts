@@ -135,7 +135,7 @@ export const testimonials = [
 export const showTestimonials = true;
 
 export const contact = {
-  email: "hola@juanjose.dev",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  email: "juanjosecaicedo6@gmail.com",
+  github: "https://github.com/juanjosecaicedo",
+  linkedin: "https://www.linkedin.com/in/juan-jose-caicedo-ararat-90a253217/",
 };
