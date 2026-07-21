@@ -116,19 +116,19 @@ export const experience = [
 export const testimonials = [
   {
     quote:
-      "Un desarrollador atento al detalle, siempre entregó a tiempo y con calidad.",
-    name: "Nombre Apellido",
-    role: "Product Manager",
+      "Nos complació mucho saber cómo resolvió los problemas y desafíos de la interfaz de usuario de nuestros sitios web.",
+    name: "Andrés Solis",
+    role: "Diseñador",
   },
   {
-    quote: "Excelente comunicación y capacidad para resolver problemas complejos.",
-    name: "Nombre Apellido",
-    role: "Diseñador UX",
+    quote: "Me alegro de haber decidido trabajar contigo. El proyecto fue entregado a tiempo con todos los requisitos.",
+    name: "Yeider Adrian Mina",
+    role: "Developer (full-stack)",
   },
   {
-    quote: "Trabajar con él fue clave para lanzar nuestro producto a tiempo.",
-    name: "Nombre Apellido",
-    role: "CTO",
+    quote: "El desarrollo de los proyectos siempre se enfrentó a dificultades, pero las manejaste bien.",
+    name: "Jose Edier Mera",
+    role: "Developer (full-stack)",
   },
 ];
 
