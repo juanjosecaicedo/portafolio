@@ -13,6 +13,7 @@
   body {
     background: #fafaf9;
     color: #1c1917;
+    scroll-behavior: smooth;
   }
 
   a {
