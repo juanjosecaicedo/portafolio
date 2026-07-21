@@ -1,5 +1,7 @@
 ---
 import { contact } from "../data/portfolio";
+import githubSvg from "../assets/github.svg?raw";
+import linkedinSvg from "../assets/linkedin.svg?raw";
 ---
 
 <section
@@ -29,15 +31,25 @@ import { contact } from "../data/portfolio";
       </a>
       <a
         href={contact.github}
-        class="px-7 py-3.5 border border-stone-700 text-stone-50 rounded-sm font-semibold text-[15px] hover:border-stone-500"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 px-7 py-3.5 border border-stone-700 text-stone-50 rounded-sm font-semibold text-[15px] hover:border-stone-500"
       >
-        GitHub
+        <span
+          class="w-4 h-4 flex items-center justify-center text-current inline-block"
+          set:html={githubSvg}
+        /> GitHub
       </a>
       <a
         href={contact.linkedin}
-        class="px-7 py-3.5 border border-stone-700 text-stone-50 rounded-sm font-semibold text-[15px] hover:border-stone-500"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 px-7 py-3.5 border border-stone-700 text-stone-50 rounded-sm font-semibold text-[15px] hover:border-stone-500"
       >
-        LinkedIn
+        <span
+          class="w-4 h-4 flex items-center justify-center text-current inline-block"
+          set:html={linkedinSvg}
+        /> LinkedIn
       </a>
     </div>
   </div>

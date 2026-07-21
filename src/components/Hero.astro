@@ -1,3 +1,7 @@
+---
+import { BookUser, FolderKanban } from "@lucide/astro";
+---
+
 <section
   id="top"
   class="reveal grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-16 items-center max-w-6xl mx-auto px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-32"
@@ -20,15 +24,15 @@
     <div class="flex gap-4 flex-wrap">
       <a
         href="#projects"
-        class="px-7 py-3.5 bg-stone-900 text-stone-50 rounded-sm font-semibold text-[15px] hover:opacity-90"
+        class="flex gap-2 items-center px-7 py-3.5 bg-stone-900 text-stone-50 rounded-sm font-semibold text-[15px] hover:opacity-90"
       >
-        Ver proyectos
+        <FolderKanban size={18} /> Ver proyectos
       </a>
       <a
         href="#contact"
-        class="px-7 py-3.5 bg-transparent text-stone-900 border border-stone-300 rounded-sm font-semibold text-[15px] hover:border-stone-400"
+        class="flex gap-2 items-center px-7 py-3.5 bg-transparent text-stone-900 border border-stone-300 rounded-sm font-semibold text-[15px] hover:border-stone-400"
       >
-        Contactar
+        <BookUser size={18} /> Contactar
       </a>
     </div>
   </div>
